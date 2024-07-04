@@ -2,14 +2,17 @@ import express from 'express'
 import { Socket, Server } from 'socket.io'
 import http from 'http'
 import dotenv from 'dotenv'
-import path from 'path'
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 dotenv.config()
 
 
 const app = express()
 
 app.set('view engine', 'ejs')
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', join(__dirname, 'views'));
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static('public'))
