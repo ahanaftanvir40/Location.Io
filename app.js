@@ -2,6 +2,7 @@ import express from 'express'
 import { Socket, Server } from 'socket.io'
 import http from 'http'
 import dotenv from 'dotenv'
+import path from 'path'
 dotenv.config()
 
 
