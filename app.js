@@ -15,7 +15,7 @@ app.set('view engine', 'ejs')
 app.set('views', join(__dirname, 'views'));
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
-app.use(express.static('public'))
+app.use(express.static(join(__dirname, 'public')))
 
 const server = http.createServer(app)
 const io = new Server(server)
