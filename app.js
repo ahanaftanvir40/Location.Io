@@ -19,18 +19,23 @@ const PORT = process.env.PORT
 io.on("connection", (socket) => {
     socket.on('send-location', (data) => {
         console.log(data);
-        io.emit('received-location', { id: socket.id , ...data })
+        io.emit('received-location', { id: socket.id, ...data })
     })
     console.log('user connected');
-    socket.on('disconnect' , ()=>{
-        io.emit('user-disconnected' , socket.id)
+    socket.on('disconnect', () => {
+        io.emit('user-disconnected', socket.id)
     })
 })
 
 
 
 app.get('/', (req, res) => {
-    res.render('index')
+    try {
+        res.render('index');
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Internal Server Error');
+    }
 })
 
 
