@@ -1,4 +1,4 @@
-const socket = io()
+const socket = io('https://location-io.onrender.com')
 
 if (navigator.geolocation) {
     navigator.geolocation.watchPosition((position) => {
@@ -31,8 +31,8 @@ socket.on('received-location', (data) => {
     }
 })
 
-socket.on('user-disconnected' , (id)=>{
-    if(markers[id]){
+socket.on('user-disconnected', (id) => {
+    if (markers[id]) {
         map.removeLayer(markers[id])
         delete markers[id]
     }
