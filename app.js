@@ -14,7 +14,9 @@ const app = express()
 
 app.set('view engine', 'ejs')
 app.set('views', join(__dirname, 'views'));
-app.use(cors())
+app.use(cors({
+    origin: 'https://location-io.onrender.com'
+}))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(express.static(join(__dirname, 'public')))

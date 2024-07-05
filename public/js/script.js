@@ -1,4 +1,4 @@
-const socket = io('https://location-io.vercel.app/')
+const socket = io()
 
 if (navigator.geolocation) {
     navigator.geolocation.watchPosition((position) => {
