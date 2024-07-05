@@ -17,7 +17,7 @@ if (navigator.geolocation) {
 let map = L.map('map').setView([0, 0], 16)
 
 L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: 'Real Location io'
+    attribution: 'Location io - ahanaftanvir40'
 }).addTo(map)
 
 const markers = {}
